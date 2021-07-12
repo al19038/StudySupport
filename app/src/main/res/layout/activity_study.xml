@@ -12,7 +12,7 @@
         android:layout_marginTop="72dp"
         android:text="@string/setgoal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,10 +34,9 @@
 
     <TextView
         android:id="@+id/goaltimetext"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="80dp"
         android:text="@string/goaltimetext"
         android:textSize="24sp"
@@ -46,11 +45,10 @@
 
     <TextView
         android:id="@+id/time"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/time"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/setgoalbutton"
@@ -95,25 +93,26 @@
         app:layout_constraintStart_toEndOf="@+id/goalpercent"
         app:layout_constraintTop_toBottomOf="@+id/goaltimetext" />
 
+
     <TextView
         android:id="@+id/readtime"
         android:layout_width="70dp"
         android:layout_height="30dp"
         android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
         android:layout_marginTop="80dp"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/barchart"
         app:layout_constraintEnd_toStartOf="@+id/time"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/goaltimetext"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barchart"
         android:layout_width="match_parent"
         android:layout_height="364dp"
         app:layout_constraintBottom_toTopOf="@+id/bnv"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.655" />
