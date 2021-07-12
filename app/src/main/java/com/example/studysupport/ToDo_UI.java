@@ -47,7 +47,7 @@ public class ToDo_UI extends
         menu.getMenu().findItem(R.id.ToDo).setChecked(true);
 
 
-
+        //画面遷移
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
             @Override
@@ -179,6 +179,6 @@ public class ToDo_UI extends
 
 
 
-    //画面遷移
+
 
 

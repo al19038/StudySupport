@@ -35,6 +35,24 @@ public class DailyStudyTime {
     static List<StudyTime> studylist = new ArrayList<StudyTime>();  // 日付と学習時間のリスト
     static String filename = "dailystudyfile.csv";  // 日別学習時間ファイル名
     TimeZone timezone = TimeZone.getTimeZone("Asia/Tokyo"); //タイムゾーン設定(東京)
+    Calendar min = Calendar.getInstance(timezone); // 受け付ける日付の下限
+    Calendar max = Calendar.getInstance(timezone); // 受け付ける日付の上限
+
+    //コンストラクタ(日付の上限・下限を設定)
+    DailyStudyTime() {
+        // 2020年1月1日
+        min.set(2020,0,1);
+        min.set(Calendar.HOUR_OF_DAY, 0);
+        min.set(Calendar.MINUTE, 0);
+        min.set(Calendar.SECOND, 0);
+        min.set(Calendar.MILLISECOND, 0);
+        // 2100年12月31日
+        max.set(2100,11,31);
+        max.set(Calendar.HOUR_OF_DAY, 0);
+        max.set(Calendar.MINUTE, 0);
+        max.set(Calendar.SECOND, 0);
+        max.set(Calendar.MILLISECOND, 0);
+    }
 
     // ファイル読み込み
     private void readFile(){
@@ -62,7 +80,7 @@ public class DailyStudyTime {
             br.close();
         }catch (Exception e){
             e.printStackTrace();
-            // ファイルが存在しなかった場合はその日の日付+0分の記録を追加する
+            // ファイルが存在しなかった場合はその日の日付，学習時間0分の記録を追加する
             try{
                 FileWriter writer = new FileWriter(file);
                 PrintWriter pw = new PrintWriter(new BufferedWriter(writer));
@@ -100,9 +118,18 @@ public class DailyStudyTime {
         if (studytime < 0) {
             return issucceeded;
         }
+
+        // 日付が範囲外の場合保存しない
+        if (today.before(min) || today.after(max)){
+            return issucceeded;
+        }
+
+        // 日別学習時間ファイルをまだ読み込んでいない場合は読み込む
         if (studylist.size() == 0){
             readFile();
         }
+
+        //　ファイルの中が空だった場合は新しくレコードを追加
         if (studylist.size() == 0) {
             StudyTime study = new StudyTime();
             study.date = today;
@@ -150,9 +177,18 @@ public class DailyStudyTime {
         day.set(Calendar.SECOND, 0);
         day.set(Calendar.MILLISECOND, 0);
         int time = -1; // 学習時間
+
+        // 指定された日付が範囲外だった場合は読み込まない
+        if (day.before(min) || day.after(max)){
+            return time;
+        }
+
+        // 日別学習時間ファイルをまだ読み込んでいない場合は読み込む
         if (studylist.size() == 0){
             readFile();
         }
+
+        // 該当する日付を検索
         for (int i = 0; i < studylist.size(); i++){
             if(studylist.get(i).date.compareTo(day) == 0){
                 time = studylist.get(i).time;
