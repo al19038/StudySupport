@@ -16,10 +16,10 @@
         android:onClick="onTapChara"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587"
+        app:layout_constraintVertical_bias="0.591"
         tools:srcCompat="@drawable/chara0" />
 
     <TextView
@@ -33,13 +33,15 @@
         app:layout_constraintBottom_toTopOf="@+id/imageButton"
         app:layout_constraintEnd_toStartOf="@+id/pieChart"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bigMokuhyo"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/pieChart"
         android:layout_width="91dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
         android:textColor="@color/purple_200"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton"
@@ -59,55 +61,53 @@
         app:backgroundTint="#FFEB3B"
         app:layout_constraintBottom_toTopOf="@+id/textNext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pieChart"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
         android:id="@+id/textNext"
         android:layout_width="180dp"
         android:layout_height="30dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
         android:background="#95FFEB3B"
         android:gravity="center"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/bnv"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.969"
+        app:layout_constraintHorizontal_bias="0.887"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/bigMokuhyo"
         android:layout_width="360dp"
         android:layout_height="100dp"
-        android:layout_marginTop="55dp"
         android:background="#00ced1"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/pieChart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.657" />
 
     <Button
         android:id="@+id/mokuhyo"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="338dp"
         android:layout_height="90dp"
-        android:layout_marginTop="55dp"
         app:backgroundTint="#00FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/pieChart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv"
@@ -131,11 +131,11 @@
         android:layout_width="101dp"
         android:layout_height="23dp"
         android:text="目標達成率"
-        app:layout_constraintBottom_toTopOf="@+id/Comment"
+        app:layout_constraintBottom_toTopOf="@+id/pieChart"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bigMokuhyo"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
